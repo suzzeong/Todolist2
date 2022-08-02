@@ -41,6 +41,24 @@ redux 파일을 만들어 configStore.js(config)와 todo.js(modules)를 넣어�
 Detail(components)을 TodoDetail(pages)로 받은 다음,
 Router(shared)에 react-router-dom을 이용하여 새로운 페이지로 가도록 전달해준다.
 
+### 설치하기
+```c
+// 프로젝트 생성
+yarn create react-app foldername
+
+// 스타일컴포넌트
+yarn add styled-components
+
+// 리덕스 & 리액트 리덕스
+yarn add redux react-redux
+
+// 리액트 라우터 돔
+yarn add react-router-dom
+
+// 프로젝트 구동
+yarn start
+```
+
 ### App.js
 ```c
 import Router from "./shared/Router"
