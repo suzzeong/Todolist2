@@ -1,18 +1,42 @@
-# 리액트
+# Todolist를 React-Redux로 만들기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+redux로 Todolist 구현해 보았습니다
 
-## Available Scripts
+## 파일구조
 
-In the project directory, you can run:
+```bash
+📦src
+ ┣ 📂components
+ ┃ ┣ 📜Detail.jsx
+ ┃ ┣ 📜Form.jsx
+ ┃ ┣ 📜Header.jsx
+ ┃ ┣ 📜Layout.jsx
+ ┃ ┣ 📜List.jsx
+ ┃ ┗ 📜Todo.jsx
+ ┣ 📂pages
+ ┃ ┣ 📜TodoDetail.jsx
+ ┃ ┗ 📜TodoList.jsx
+ ┣ 📂redux
+ ┃ ┣ 📂config
+ ┃ ┃ ┗ 📜configStore.js
+ ┃ ┗ 📂modules
+ ┃ ┃ ┗ 📜todos.js
+ ┣ 📂shared
+ ┃ ┗ 📜Router.js
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┣ 📜logo.svg
+ ┣ 📜reportWebVitals.js
+ ┗ 📜setupTests.js
+ ```
 
-### `yarn start`
+### 컴포넌트를 나눈 기준
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Header, Form, List는 Todo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `yarn test`
 
