@@ -1,5 +1,5 @@
 # Todolist를 React-Redux로 만들기
-redux로 Todolist 구현해 보았습니다
+redux와 router 개념을 바탕으로 Todolist 구현해 보았습니다.
 
 
 ## 파일구조
