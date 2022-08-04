@@ -1,73 +1,91 @@
-# 리액트
+# Todolist를 React-Redux로 만들기
+redux와 router 개념을 바탕으로 Todolist 구현해 보았습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 파일구조
+```bash
+📦src
+ ┣ 📂components
+ ┃ ┣ 📜Detail.jsx
+ ┃ ┣ 📜Form.jsx
+ ┃ ┣ 📜Header.jsx
+ ┃ ┣ 📜Layout.jsx
+ ┃ ┣ 📜List.jsx
+ ┃ ┗ 📜Todo.jsx
+ ┣ 📂pages
+ ┃ ┣ 📜TodoDetail.jsx
+ ┃ ┗ 📜TodoList.jsx
+ ┣ 📂redux
+ ┃ ┣ 📂config
+ ┃ ┃ ┗ 📜configStore.js
+ ┃ ┗ 📂modules
+ ┃ ┃ ┗ 📜todos.js
+ ┣ 📂shared
+ ┃ ┗ 📜Router.js
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┣ 📜logo.svg
+ ┣ 📜reportWebVitals.js
+ ┗ 📜setupTests.js
+ ```
 
-In the project directory, you can run:
+### 컴포넌트를 나눈 기준
+Header, Form, List(components)는 TodoList(pages)로 전달해주고,
+List(components)는 Todo(components)의 부모 컴포넌트다.
 
-### `yarn start`
+redux 파일을 만들어 configStore.js(config)와 todo.js(modules)를 넣어주었다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Detail(components)을 TodoDetail(pages)로 받은 다음,
+Router(shared)에 react-router-dom을 이용하여 새로운 페이지로 가도록 전달해준다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 설치하기
+```c
+// 프로젝트 생성
+yarn create react-app foldername
 
-### `yarn test`
+// 스타일컴포넌트
+yarn add styled-components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+// 리덕스 & 리액트 리덕스
+yarn add redux react-redux
 
-### `yarn build`
+// 리액트 라우터 돔
+yarn add react-router-dom
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// 프로젝트 구동
+yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### App.js
+```c
+import Router from "./shared/Router"
+import './App.css';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+function App() {
+  return <Router />
+}
 
-### `yarn eject`
+export default App;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### index.js
+```c
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+import store from './redux/config/configStore';
+import { Provider } from "react-redux"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-#� �T�o�d�o�l�i�s�t�2�
-�
-�
