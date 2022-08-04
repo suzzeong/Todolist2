@@ -34,11 +34,13 @@ redux와 router 개념을 바탕으로 Todolist 구현해 보았습니다.
 
 ### 컴포넌트를 나눈 기준
 Header, Form, List(components)는 TodoList(pages)로 전달해주고,
+
 List(components)는 Todo(components)의 부모 컴포넌트다.
 
 redux 파일을 만들어 configStore.js(config)와 todo.js(modules)를 넣어주었다.
 
 Detail(components)을 TodoDetail(pages)로 받은 다음,
+
 Router(shared)에 react-router-dom을 이용하여 새로운 페이지로 가도록 전달해준다.
 
 ### 설치하기
@@ -54,6 +56,9 @@ yarn add redux react-redux
 
 // 리액트 라우터 돔
 yarn add react-router-dom
+
+// Material UI
+yarn add @mui/icons-material
 
 // 프로젝트 구동
 yarn start
