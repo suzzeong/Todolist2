@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Layout = ({ children }) => {
   return (
     <StLayoutContainer>
-
       <StContents>{children}</StContents>
     </StLayoutContainer>
   );

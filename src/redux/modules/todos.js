@@ -21,7 +21,20 @@ export const doneTodo = (id) => {
 
 // Initial State
 
-const initialState = [{}];
+const initialState = [
+  {
+    id: 1,
+    title: '리액트 강의보기',
+    content: '챕터 1부터 챕터 12까지 학습',
+    isDone: false,
+  },
+  {
+    id: 2,
+    title: '점심 먹기',
+    content: '점심 뭐먹지?',
+    isDone: false,
+  }
+];
 
 // Reducer
 

@@ -1,24 +1,30 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { deleteTodo, doneTodo } from '../redux/modules/todos';
 
 const Todo = ({ todo }) => {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   // console.log(todo);
   return (
     <StTodoContainer>
-      <Link to={`/detail/${todo.id}`}>상세보기</Link>
-
+      <StLink>
+        <Link to={`/detail/${todo.id}`}>상세보기</Link>
+        {/* <p onClick={() => navigate(`/detail/${todo.id}`)}>상세보기</p> */}
+      </StLink>
       <StTodoTitle>{todo.title}</StTodoTitle>
       <StTodoContent>{todo.content}</StTodoContent>
 
       <StTodobuttons>
         <StTodobutton
           onClick={() => {
-            dispatch(deleteTodo(todo.id));
+            if(window.confirm('정말 삭제하겠습니까?')) {
+              dispatch(deleteTodo(todo.id));
+            }
           }}
         >
           삭제
@@ -36,19 +42,24 @@ const Todo = ({ todo }) => {
 };
 
 const StTodoContainer = styled.div`
-  gap: 12px;
   margin-top: 5px;
-  width: 250px;
+  width: 300px;
   min-height: 150px;
   padding: 30px;
-  border: 1px solid #b0e0e6;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #eee;
+  word-wrap: break-word;
 `;
+
+const StLink = styled.div`
+  border-style: none;
+  margin-bottom: 15px;
+`
 
 const StTodoTitle = styled.div`
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 5px;
 `;
 const StTodoContent = styled.div`
   font-weight: 18px;
@@ -61,12 +72,12 @@ const StTodobuttons = styled.div`
 
 const StTodobutton = styled.div`
   cursor: pointer;
-  border: 1px solid #b0e0e6;
+  background-color: #90caf9;
   border-radius: 8px;
-  padding: 5px 40px;
+  padding: 5px 55px;
   margin-top: 20px;
   &:hover {
-    background-color: #b0e0e6;
+    background-color: #64b5f6;
   }
 `;
 
